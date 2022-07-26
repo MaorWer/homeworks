@@ -29,9 +29,19 @@ function inputSubmit() {
 }
 
 function userBg() {
-  userCard.style.backgroundColor = userColor.value;
+  if (userName.value.length < 2) {
+    alert("user name must be at least two characters long");
+    return;
+  }
+  if (userAge.value <= 18) {
+    alert("you are to yong");
+    return;
+  }
+
   userCard.innerHTML +=
-    `<div class="card-body">
+    `<div class="card-body" style="background-color:` +
+    userColor.value +
+    `;">
     <h5 class="card-title">` +
     userName.value +
     `</h5>
@@ -46,10 +56,6 @@ function userBg() {
     <li class="list-group-item">` +
     userCountry.value +
     `</li>
-    <li class="list-group-item">` +
-    userCountry.value +
-    `</li>
   </ul>
 </div>`;
 }
-
